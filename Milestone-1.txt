@@ -1,0 +1,63 @@
+ 	Goldman sachs (1-5)
+  Q1. Group anagram together (leetcode 49)
+     or https://practice.geeksforgeeks.org/problems/print-anagrams-together/1/
+     
+    this is a function problem so i solve only function here.
+   Solution - My Code ;
+     
+
+    1. using Hashmap to store string and list formed by the string .
+      
+       public List<List<String>> groupAnagrams(String[] strs) {
+         if (strs == null || strs.length == 0) return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String s : strs) {
+            char[] ca = new char[26];
+            for (char c : s.toCharArray()) ca[c - 'a']++;
+            String keyStr = String.valueOf(ca);
+            if (!map.containsKey(keyStr)) map.put(keyStr, new ArrayList<>());
+            map.get(keyStr).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
+  	T.c =o(n*len(string))
+        S.c=o(1)
+
+
+
+  Q2 . Overlapping Rectangles
+      It is also a function problem.
+    solution-  My approach :
+    I  use simple geometry concept of  a figure formed by two vertical and two horizontal lines.
+    In this we have to see the vertices of both rectangles.
+    
+    here is My code:
+   int doOverlap(int L1[], int R1[], int L2[], int R2[]) {
+       
+           if(L2[0]>R1[0]||L1[0]>R2[0]||L1[1]<R2[1]||L2[1]<R1[1])
+       return 0;
+       return 1;
+    }
+    T.c=o(1)
+    s.c=o(1)
+
+ Q3. Greatest common divisor of string (leetcode 1071)
+    or https://leetcode.com/problems/greatest-common-divisor-of-strings/
+    
+
+
+    Solution-:My code: 
+     public String gcdOfStrings(String str1, String str2) {
+     if (!(str1+str2).equals(str2+str1))  return "";
+    
+    int gcdVal = gcd(str1.length() , str2.length());
+    return str2.substring(0, gcdVal);
+       }
+
+     public static int gcd(int p, int q) {
+    if (q == 0) return p;
+    else return gcd(q, p % q);    
+     }  
+    T.c=o(n)
+     S.c=o(1)
+  
