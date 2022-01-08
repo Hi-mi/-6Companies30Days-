@@ -1,0 +1,20 @@
+Q1 . Minimum size subarray sum(Goldman sachs)
+ 
+ solution- My approach is using two pointers and storing min length of subarray 
+ My code - int n=nums.length,l=0,r=0,min=Integer.MAX_VALUE,sum=0;
+        while(r<n){
+          sum+=nums[r++];
+            while(sum>=target){
+                min=Math.min(min,r-l);
+                sum-=nums[l++];
+            }
+        }
+        return min==Integer.MAX_VALUE?0:min;
+    }
+}
+//T.c=o(n)
+//s.c=o(1)
+ 
+Many some qstn related :
+There is some important template which on problem on Minimum window substring (Leetcode)
+          https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
